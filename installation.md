@@ -24,35 +24,35 @@ You can download the iso [here](https://www.debian.org/distrib/netinst), choose`
 ## Create the Virtual Machine
 Create a Virtual-Machine
 ```console
-~ $ VBoxManage create --name roger-skyline --ostype Debian_64 --register
+$ VBoxManage create --name roger-skyline --ostype Debian_64 --register
 ```
 Adapt the VM to Debian
 ```console
-~ $ VBoxManage modifyvm roger-skyline --memory 1024 --vram 12
-~ $ VBoxManage modifyvm roger-skyline --nic1 bridged --bridgeadapter1 en0
+$ VBoxManage modifyvm roger-skyline --memory 1024 --vram 12
+$ VBoxManage modifyvm roger-skyline --nic1 bridged --bridgeadapter1 en0
 ```
 
 Show VM infos
 ```console
-~ $ VBoxManage showvminfo roger-skyline
+$ VBoxManage showvminfo roger-skyline
 ```
 
 Create a virtual storage and attach it the the VM
 ```console
-~ $ VBoxManage createmedium --filename ./roger-skyline.vdi --size 8192 --variant Standard
-~ $ VBoxManage storagectl roger-skyline --name "SATA" --add sata --bootable on
-~ $ VBoxManage storageattach roger-skyline --storagectl "SATA" --port 0 --device 0 --type hdd --medium ./roger-skyline.vdi
+$ VBoxManage createmedium --filename ./roger-skyline.vdi --size 8192 --variant Standard
+$ VBoxManage storagectl roger-skyline --name "SATA" --add sata --bootable on
+$ VBoxManage storageattach roger-skyline --storagectl "SATA" --port 0 --device 0 --type hdd --medium ./roger-skyline.vdi
 ```
 
 Mount the Debian iso for installation
 ```console
-~ $ VBoxManage storagectl roger-skyline --name "Installation Disk" --add ide
-~ $ VBoxManage storageattach roger-skyline --storagectl "Installation Disk" --port 1 --device 0 --type dvddrive --medium ~/debian-9.8.0-amd64-netinst.iso
+$ VBoxManage storagectl roger-skyline --name "Installation Disk" --add ide
+$ VBoxManage storageattach roger-skyline --storagectl "Installation Disk" --port 1 --device 0 --type dvddrive --medium ~/debian-9.8.0-amd64-netinst.iso
 ```
 
 Start the VM
 ```console
-~ $ VBoxManage startvm roger-skyline
+$ VBoxManage startvm roger-skyline
 ```
 
 ## Install Debian
@@ -60,7 +60,7 @@ Follow the instruction on the screen
 
 Unmount the installation storage when it's done
 ```console
-~ $ VBoxManage storageattach roger-skyline --storagectl "Installation Disk" --port 1  --device 0 --type dvddrive --medium none
+$ VBoxManage storageattach roger-skyline --storagectl "Installation Disk" --port 1  --device 0 --type dvddrive --medium none
 ```
 
 ## Find the IP address and connect through SSH
@@ -72,7 +72,7 @@ mjacques@roger-skyline $ hostname -I
 
 Connect to SSH to the VM
 ```console
-~ $ ssh mjacques@10.114.254.198
+$ ssh mjacques@10.114.254.198
 mjacques@roger-skyline $
 ```
 
@@ -119,7 +119,7 @@ mjacques@roger-skyline $ sudo reboot
 
 Try to connect to SSH with the new IP address
 ```console
-~ $ ssh mjacques@10.114.254.42
+$ ssh mjacques@10.114.254.42
 mjacques@roger-skyline $
 ```
 
@@ -137,11 +137,11 @@ mjacques@roger-skyline $ sudo rm /etc/motd
 Before apply the change you need to create a SSH-RSA key on the host machine and copy the key to your VM
 ```console
 # iMac
-~ $ ssh-keygen
-~ $ cat ~/.ssh/id_rsa.pub
+$ ssh-keygen
+$ cat ~/.ssh/id_rsa.pub
 ssh-rsa AAAAB3Nza[...]
-~ $ scp ~/.ssh/id_rsa.pub mjacques@10.114.254.42:/home/mjacques/id_rsa_key
-~ $ ssh mjacques@10.114.254.42
+$ scp ~/.ssh/id_rsa.pub mjacques@10.114.254.42:/home/mjacques/id_rsa_key
+$ ssh mjacques@10.114.254.42
 mjacques@roger-skyline $ mkdir -p ~/.ssh
 mjacques@roger-skyline $ sudo mv id_rsa_key ~/.ssh/authorized_keys
 mjacques@roger-skyline $ sudo chmod 0644 ~/.ssh/authorized_keys
@@ -323,7 +323,7 @@ mjacques@roger-skyline:~$ sudo systemctl reload nginx
 Now you can connect to the webpage by `https://10.114.254.42`
 
 ## Go Further
-List of common script
+List of common ports
 ```console
 mjacques@roger-skyline:~$ less /etc/services
 ```
