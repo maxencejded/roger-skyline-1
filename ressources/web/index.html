@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ScreenSaver TV Shows</title>
+	<link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+	<script src="scripts.js"></script>
+	<style>
+body {
+	margin: 0;
+	background-color: black;
+}
+
+.options {
+	margin: 0;
+	position: fixed;
+	width: 6.25%;
+	background-color: black;
+	z-index: 1
+}
+
+.size {
+	margin: 0;
+	float: left;
+	background-color: black;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+	width: 12.5%;
+}
+
+.size:after {
+	content: "";
+	display: block;
+	padding-bottom: 100%;
+}
+
+.size:hover {
+	z-index: 2;
+	transform: scale(1.2);
+	box-shadow: 0 0 5px 5px #000;
+}
+
+.size:active {
+	filter: blur(5px);
+}
+
+.reverse {
+	transform: rotateY(360deg);
+	-webkit-transform: rotateY(360deg);
+	transition-duration: 5s;
+	-webkit-transition-duration: 5s;
+}
+
+.transition {
+	transition-duration: 3s;
+	-webkit-transition-duration:3s;
+}
+
+.text {
+	width: 140px;
+}
+
+.slider {
+	margin: 0;
+	-webkit-appearance: none;
+	width: 140px;
+	height: 25px;
+	background: #fff;
+	outline: none;
+	opacity: 0.7;
+	-webkit-transition: .2s;
+	transition: opacity .2s;
+}
+
+.slider:hover {
+	opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 25px;
+	height: 25px;
+	background: #000;
+	cursor: pointer;
+}
+	</style>
+</head>
+<body>
+</body>
+</html>
