@@ -262,12 +262,10 @@ mjacques@roger-skyline:~$ sudo chown -R $USER:$USER /var/www/roger-skyline/html/
 mjacques@roger-skyline:~$ sudo chmod -R 0755 /var/www/roger-skyline/
 ```
 
-Copy the files `ressources/web/index.html` and `ressources/web/scripts.js` in the VM
+Copy the files `ressources/web/index.html` in the VM
 ```console
 mjacques@roger-skyline $ sudo vim /var/www/roger-skyline/html/index.html
-mjacques@roger-skyline $ sudo vim /var/www/roger-skyline/html/scripts.js
 mjacques@roger-skyline $ sudo chmod 0644 /var/www/roger-skyline/html/index.html
-mjacques@roger-skyline $ sudo chmod 0644 /var/www/roger-skyline/html/scripts.js
 ```
 
 ### HTTP
